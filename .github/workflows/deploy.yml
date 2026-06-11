@@ -112,9 +112,9 @@ jobs:
             # Rolling restart — zero downtime
             docker compose up -d --remove-orphans
 
-            # Health check
+            # Health check — hit backend directly (nginx may not be configured yet)
             sleep 8
-            curl --fail --silent http://localhost/health | grep -q '"ok"'
+            curl --fail --silent http://localhost:8001/health | grep -q '"ok"'
 
             # Prune old images
             docker image prune -f

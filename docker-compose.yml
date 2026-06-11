@@ -1,29 +1,16 @@
 services:
 
-  caddy:
-    image: caddy:2-alpine
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"       # HTTP/3
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data
-      - caddy_config:/config
-    environment:
-      APP_DOMAIN: ${APP_DOMAIN}
-    depends_on:
-      - frontend
-      - backend
-
   frontend:
     image: ${FRONTEND_IMAGE}
     restart: unless-stopped
+    ports:
+      - "127.0.0.1:3001:80"   # only accessible locally — nginx proxies here
 
   backend:
     image: ${BACKEND_IMAGE}
     restart: unless-stopped
+    ports:
+      - "127.0.0.1:8001:8000" # only accessible locally — nginx proxies here
     environment:
       DATABASE_URL: ${DATABASE_URL:-sqlite:////app/data/poc_ar_filter.db}
       SUPABASE_URL: ${SUPABASE_URL:-}
@@ -33,6 +20,4 @@ services:
       - sqlite_data:/app/data
 
 volumes:
-  caddy_data:
-  caddy_config:
   sqlite_data:
