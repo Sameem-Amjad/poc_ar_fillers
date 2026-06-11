@@ -3,8 +3,16 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from .config import DATABASE_URL
 
-connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
-engine = create_engine(DATABASE_URL, connect_args=connect_args)
+# Supabase pooler adds ?pgbouncer=true which psycopg2 doesn't understand — strip it
+_db_url = DATABASE_URL.replace("?pgbouncer=true", "").replace("&pgbouncer=true", "")
+
+is_sqlite = _db_url.startswith("sqlite")
+connect_args = {"check_same_thread": False} if is_sqlite else {}
+engine = create_engine(
+    _db_url,
+    connect_args=connect_args,
+    pool_pre_ping=True,   # detect stale connections (important for Supabase pooler)
+)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
