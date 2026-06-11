@@ -1,0 +1,27 @@
+{$APP_DOMAIN} {
+
+    # Backend API
+    handle /api/* {
+        reverse_proxy backend:8000
+    }
+
+    handle /health {
+        reverse_proxy backend:8000
+    }
+
+    # Frontend SPA
+    handle {
+        reverse_proxy frontend:80
+    }
+
+    # Compression
+    encode gzip
+
+    # Security headers
+    header {
+        X-Content-Type-Options  nosniff
+        X-Frame-Options         DENY
+        Referrer-Policy         strict-origin-when-cross-origin
+        -Server
+    }
+}

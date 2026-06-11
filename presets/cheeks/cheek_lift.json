@@ -1,0 +1,35 @@
+{
+  "id": "cheek_lift",
+  "name": "Cheek Lift",
+  "category": "cheeks",
+  "icon": "⬆️",
+  "description": "Lateral cheek volume and lift",
+  "doses": {
+    "1.0ml": {
+      "displacements": [
+        { "landmark": 50,  "dx": -0.005, "dy": -0.008 },
+        { "landmark": 101, "dx": -0.004, "dy": -0.010 },
+        { "landmark": 36,  "dx": -0.006, "dy": -0.008 },
+        { "landmark": 116, "dx": -0.003, "dy": -0.006 },
+        { "landmark": 280, "dx":  0.005, "dy": -0.008 },
+        { "landmark": 330, "dx":  0.004, "dy": -0.010 },
+        { "landmark": 266, "dx":  0.006, "dy": -0.008 },
+        { "landmark": 345, "dx":  0.003, "dy": -0.006 }
+      ],
+      "intensity_range": [0.0, 1.0]
+    },
+    "2.0ml": {
+      "displacements": [
+        { "landmark": 50,  "dx": -0.010, "dy": -0.015 },
+        { "landmark": 101, "dx": -0.008, "dy": -0.018 },
+        { "landmark": 36,  "dx": -0.012, "dy": -0.015 },
+        { "landmark": 116, "dx": -0.006, "dy": -0.012 },
+        { "landmark": 280, "dx":  0.010, "dy": -0.015 },
+        { "landmark": 330, "dx":  0.008, "dy": -0.018 },
+        { "landmark": 266, "dx":  0.012, "dy": -0.015 },
+        { "landmark": 345, "dx":  0.006, "dy": -0.012 }
+      ],
+      "intensity_range": [0.0, 1.0]
+    }
+  }
+}

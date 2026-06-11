@@ -1,0 +1,31 @@
+{
+  "id": "french_lips",
+  "name": "French Lips",
+  "category": "lips",
+  "icon": "✨",
+  "description": "Full lower lip with subtle upper enhancement",
+  "doses": {
+    "0.5ml": {
+      "displacements": [
+        { "landmark": 17,  "dx":  0.000, "dy":  0.009 },
+        { "landmark": 84,  "dx": -0.003, "dy":  0.008 },
+        { "landmark": 314, "dx":  0.003, "dy":  0.008 },
+        { "landmark": 146, "dx": -0.002, "dy":  0.006 },
+        { "landmark": 375, "dx":  0.002, "dy":  0.006 },
+        { "landmark": 0,   "dx":  0.000, "dy": -0.003 }
+      ],
+      "intensity_range": [0.0, 1.0]
+    },
+    "1.0ml": {
+      "displacements": [
+        { "landmark": 17,  "dx":  0.000, "dy":  0.016 },
+        { "landmark": 84,  "dx": -0.005, "dy":  0.014 },
+        { "landmark": 314, "dx":  0.005, "dy":  0.014 },
+        { "landmark": 146, "dx": -0.004, "dy":  0.011 },
+        { "landmark": 375, "dx":  0.004, "dy":  0.011 },
+        { "landmark": 0,   "dx":  0.000, "dy": -0.005 }
+      ],
+      "intensity_range": [0.0, 1.0]
+    }
+  }
+}

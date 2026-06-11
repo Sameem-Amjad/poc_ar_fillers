@@ -1,0 +1,33 @@
+{
+  "id": "natural_lips",
+  "name": "Natural Lips",
+  "category": "lips",
+  "icon": "💋",
+  "description": "Subtle lip enhancement — balanced upper and lower",
+  "doses": {
+    "0.5ml": {
+      "displacements": [
+        { "landmark": 0,   "dx":  0.000, "dy": -0.006 },
+        { "landmark": 37,  "dx": -0.003, "dy": -0.005 },
+        { "landmark": 267, "dx":  0.003, "dy": -0.005 },
+        { "landmark": 14,  "dx":  0.000, "dy":  0.004 },
+        { "landmark": 17,  "dx":  0.000, "dy":  0.007 },
+        { "landmark": 84,  "dx": -0.002, "dy":  0.005 },
+        { "landmark": 314, "dx":  0.002, "dy":  0.005 }
+      ],
+      "intensity_range": [0.0, 1.0]
+    },
+    "1.0ml": {
+      "displacements": [
+        { "landmark": 0,   "dx":  0.000, "dy": -0.012 },
+        { "landmark": 37,  "dx": -0.006, "dy": -0.010 },
+        { "landmark": 267, "dx":  0.006, "dy": -0.010 },
+        { "landmark": 14,  "dx":  0.000, "dy":  0.008 },
+        { "landmark": 17,  "dx":  0.000, "dy":  0.014 },
+        { "landmark": 84,  "dx": -0.004, "dy":  0.010 },
+        { "landmark": 314, "dx":  0.004, "dy":  0.010 }
+      ],
+      "intensity_range": [0.0, 1.0]
+    }
+  }
+}

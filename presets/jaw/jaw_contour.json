@@ -1,0 +1,20 @@
+{
+  "id": "jaw_contour",
+  "name": "Jaw Contour",
+  "category": "jaw",
+  "icon": "▱",
+  "description": "Define and sharpen the jawline",
+  "doses": {
+    "2.0ml": {
+      "displacements": [
+        { "landmark": 172, "dx": -0.006, "dy":  0.005 },
+        { "landmark": 136, "dx": -0.008, "dy":  0.004 },
+        { "landmark": 150, "dx": -0.007, "dy":  0.003 },
+        { "landmark": 397, "dx":  0.006, "dy":  0.005 },
+        { "landmark": 365, "dx":  0.008, "dy":  0.004 },
+        { "landmark": 379, "dx":  0.007, "dy":  0.003 }
+      ],
+      "intensity_range": [0.0, 1.0]
+    }
+  }
+}

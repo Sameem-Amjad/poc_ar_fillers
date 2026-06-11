@@ -1,0 +1,29 @@
+{
+  "id": "chin_aug",
+  "name": "Chin Augmentation",
+  "category": "chin",
+  "icon": "◇",
+  "description": "Forward chin projection",
+  "doses": {
+    "1.0ml": {
+      "displacements": [
+        { "landmark": 152, "dx":  0.000, "dy":  0.010 },
+        { "landmark": 148, "dx": -0.003, "dy":  0.008 },
+        { "landmark": 377, "dx":  0.003, "dy":  0.008 },
+        { "landmark": 176, "dx": -0.002, "dy":  0.006 },
+        { "landmark": 400, "dx":  0.002, "dy":  0.006 }
+      ],
+      "intensity_range": [0.0, 1.0]
+    },
+    "2.0ml": {
+      "displacements": [
+        { "landmark": 152, "dx":  0.000, "dy":  0.018 },
+        { "landmark": 148, "dx": -0.005, "dy":  0.015 },
+        { "landmark": 377, "dx":  0.005, "dy":  0.015 },
+        { "landmark": 176, "dx": -0.004, "dy":  0.011 },
+        { "landmark": 400, "dx":  0.004, "dy":  0.011 }
+      ],
+      "intensity_range": [0.0, 1.0]
+    }
+  }
+}

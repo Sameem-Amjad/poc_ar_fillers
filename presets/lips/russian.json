@@ -1,0 +1,42 @@
+{
+  "id": "russian_lips",
+  "name": "Russian Lips",
+  "category": "lips",
+  "icon": "💄",
+  "description": "Defined cupid bow, projecting upper lip",
+  "doses": {
+    "0.5ml": {
+      "displacements": [
+        { "landmark": 0,   "dx":  0.000, "dy": -0.010 },
+        { "landmark": 37,  "dx": -0.005, "dy": -0.009 },
+        { "landmark": 267, "dx":  0.005, "dy": -0.009 },
+        { "landmark": 13,  "dx":  0.000, "dy": -0.006 },
+        { "landmark": 14,  "dx":  0.000, "dy":  0.002 },
+        { "landmark": 17,  "dx":  0.000, "dy":  0.003 }
+      ],
+      "intensity_range": [0.0, 1.0]
+    },
+    "1.0ml": {
+      "displacements": [
+        { "landmark": 0,   "dx":  0.000, "dy": -0.016 },
+        { "landmark": 37,  "dx": -0.007, "dy": -0.014 },
+        { "landmark": 267, "dx":  0.007, "dy": -0.014 },
+        { "landmark": 13,  "dx":  0.000, "dy": -0.010 },
+        { "landmark": 14,  "dx":  0.000, "dy":  0.003 },
+        { "landmark": 17,  "dx":  0.000, "dy":  0.005 }
+      ],
+      "intensity_range": [0.0, 1.0]
+    },
+    "1.5ml": {
+      "displacements": [
+        { "landmark": 0,   "dx":  0.000, "dy": -0.022 },
+        { "landmark": 37,  "dx": -0.010, "dy": -0.018 },
+        { "landmark": 267, "dx":  0.010, "dy": -0.018 },
+        { "landmark": 13,  "dx":  0.000, "dy": -0.014 },
+        { "landmark": 14,  "dx":  0.000, "dy":  0.004 },
+        { "landmark": 17,  "dx":  0.000, "dy":  0.007 }
+      ],
+      "intensity_range": [0.0, 1.0]
+    }
+  }
+}
