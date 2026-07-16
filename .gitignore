@@ -16,4 +16,10 @@ frontend/dist/
 # OS
 .DS_Store
 
+# Patient data — NEVER commit (PDPL / client compliance).
+# Clinical images stay on local machines only.
+# (Anchored to repo root — frontend/src/engine/lips is source code.)
+/lips/
+/lips_curation/
+
 *.md
