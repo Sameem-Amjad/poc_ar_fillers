@@ -106,6 +106,16 @@ jobs:
             sed -i "s|FRONTEND_IMAGE=.*|FRONTEND_IMAGE=ghcr.io/${REPO}/frontend:${{ github.sha }}|" .env
             sed -i "s|BACKEND_IMAGE=.*|BACKEND_IMAGE=ghcr.io/${REPO}/backend:${{ github.sha }}|"  .env
 
+            # Sync database config from GitHub secrets.
+            # No secret → blank the value so compose falls back to SQLite —
+            # a stale/dead DB URL must never crash-loop the backend.
+            set_env () {
+              grep -q "^$1=" .env && sed -i "s|^$1=.*|$1=$2|" .env || echo "$1=$2" >> .env
+            }
+            set_env DATABASE_URL "${{ secrets.DATABASE_URL }}"
+            set_env SUPABASE_URL "${{ secrets.SUPABASE_URL }}"
+            set_env SUPABASE_KEY "${{ secrets.SUPABASE_KEY }}"
+
             # Pull new images
             docker compose pull
 

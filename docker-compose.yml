@@ -19,5 +19,18 @@ services:
     volumes:
       - sqlite_data:/app/data
 
+  # Touch the database every 6h so a free-tier Supabase project never
+  # auto-pauses (paused projects take the whole backend down with them).
+  keepalive:
+    image: curlimages/curl:8.10.1
+    restart: unless-stopped
+    depends_on:
+      - backend
+    command: >
+      sh -c 'while true; do
+        curl -fsS http://backend:8000/api/sessions/ >/dev/null 2>&1 || true;
+        sleep 21600;
+      done'
+
 volumes:
   sqlite_data:
