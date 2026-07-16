@@ -8,6 +8,9 @@ export default defineConfig({
     exclude: ['@mediapipe/tasks-vision'],
   },
   server: {
+    // Dev-only: allow serving files from the repo root (dataset tooling
+    // reads clinic images via /@fs/ in the QA harness).
+    fs: { allow: ['..'] },
     headers: {
       'Cross-Origin-Opener-Policy': 'same-origin',
       'Cross-Origin-Embedder-Policy': 'require-corp',

@@ -1,4 +1,29 @@
+@import "@fontsource-variable/inter";
 @import "tailwindcss";
+
+/* Design tokens — STITCH_AI_DESIGN_PROMPT.md (premium clinical aesthetic) */
+@theme {
+  --color-base: #f7f8fa;
+  --color-elevated: #ffffff;
+  --color-subtle: #eef1f5;
+  --color-line: #e2e6ec;
+
+  --color-ink: #10151c;
+  --color-ink-body: #3a434f;
+  --color-ink-secondary: #6b7480;
+  --color-ink-disabled: #a7aeb8;
+
+  --color-accent: #2a8c86;
+  --color-accent-press: #1f6f6b;
+  --color-accent-tint: #dcefec;
+
+  --color-gold: #b08a4a;
+  --color-success: #2e8b57;
+  --color-warning: #c9852a;
+  --color-danger: #c0463b;
+
+  --font-sans: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
 
 @layer base {
   * {
@@ -7,14 +32,27 @@
   body {
     margin: 0;
     padding: 0;
-    background: #000;
-    color: #fff;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--color-base);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
     overflow: hidden;
     height: 100dvh;
+    -webkit-font-smoothing: antialiased;
   }
   #root {
     height: 100dvh;
     overflow: hidden;
+  }
+}
+
+@layer utilities {
+  /* Frosted control surface floating over the live camera */
+  .ar-surface {
+    background: rgba(16, 21, 28, 0.42);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
   }
 }

@@ -14,7 +14,10 @@ function App() {
         <Splash onStart={() => setPage('camera')} />
       )}
       {page === 'camera' && (
-        <CameraPage onViewSessions={() => setPage('saved')} />
+        <CameraPage
+          onExit={() => setPage('splash')}
+          onViewSessions={() => setPage('saved')}
+        />
       )}
       {page === 'saved' && (
         <SavedPage onBack={() => setPage('camera')} />
