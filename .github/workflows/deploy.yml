@@ -77,6 +77,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Free disk and ensure the target exists BEFORE copying — the post-
+      # deploy prune never runs when deploys fail, so a full disk otherwise
+      # wedges the pipeline permanently (scp exits 1 on extract).
+      - name: Prepare server (disk space + target dir)
+        uses: appleboy/ssh-action@v1
+        with:
+          host:     ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key:      ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            mkdir -p ~/poc_ar_filter
+            echo "disk before cleanup:" && df -h / | tail -1
+            docker image prune -af || true
+            docker builder prune -af || true
+            docker container prune -f || true
+            sudo journalctl --vacuum-size=100M 2>/dev/null || true
+            sudo apt-get clean 2>/dev/null || true
+            echo "disk after cleanup:" && df -h / | tail -1
+
       # Copy only the files the server needs (no source code)
       - name: Copy compose files to EC2
         uses: appleboy/scp-action@v0.1.7
