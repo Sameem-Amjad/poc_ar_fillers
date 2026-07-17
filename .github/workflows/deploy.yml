@@ -73,6 +73,9 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     environment: production
+    permissions:
+      contents: read
+      packages: read
 
     steps:
       - uses: actions/checkout@v4
@@ -116,8 +119,10 @@ jobs:
             set -e
             cd ~/poc_ar_filter
 
-            # Authenticate with GHCR to pull private images
-            echo "${{ secrets.GHCR_TOKEN }}" | \
+            # Authenticate with GHCR using the run's own GITHUB_TOKEN —
+            # never expires mid-lifecycle (unlike a PAT), and the pull
+            # happens during the run while the token is valid.
+            echo "${{ github.token }}" | \
               docker login ghcr.io -u "${{ github.actor }}" --password-stdin
 
             # Update image references in .env
